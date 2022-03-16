@@ -9,6 +9,11 @@ La partita termina quando il giocatore clicca su una bomba o raggiunge il numero
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente
 ha cliccato su una cella che non era una b.*/
 
+//Creo una funzione per genere la bombe all'interno della funzione "creatCell".
+function startGame(totalCells){
+    const bombPosition = generatedBombs(totalCells);
+    createCell(totalCells);
+}
 
 //Creo una griglia 10x10.
 const grid = document.getElementById('grid');
