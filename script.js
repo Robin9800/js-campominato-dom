@@ -9,12 +9,6 @@ La partita termina quando il giocatore clicca su una bomba o raggiunge il numero
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente
 ha cliccato su una cella che non era una b.*/
 
-//Creo una funzione per genere la bombe all'interno della funzione "creatCell".
-function startGame(totalCells){
-    const bombPosition = generatedBombs(totalCells);
-    createCell(totalCells);
-}
-
 //Creo una griglia 10x10.
 const grid = document.getElementById('grid');
 
@@ -22,6 +16,25 @@ const column = 10;
 const row = 10;
 
 const totalCells = column * row;
+
+//Creo una funzione per generare la bombe dentro un array vuoto.
+function generatedBombs(max){
+    const positions = [];
+    //Genera numeri random finchè la lunghezza del contenuto dell'array è inferiore a 16
+    while(positions.length < 16){
+        const number = generateRandomNumber(1, max);
+        //Se nell'array non è incluso il numero appena generato, allora inseriscilo nell'array.
+        if(!positions.includes(number)){
+            positions.push(number);
+        }
+    }
+    return positions;
+}
+
+function generateRandomNumber(min, max){
+    const range = max - min + 1;
+    return Math.floor(Math.random()*range)+min;
+}
 
 /*Ora che sappiamo quante celle dobbiamo creare, dobbiamo ripetere la creazione della cella N volte.
  Usiamo il ciclo for.*/
@@ -55,3 +68,4 @@ function createCell(){
     item.classList.add('cell');
     return item
 }
+
