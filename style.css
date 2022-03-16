@@ -1,0 +1,29 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/*CONTENT*/
+#grid{
+    width: 500px;
+    height: 500px;
+    margin: 50px auto;
+    background-color: rgb(253, 228, 0);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+
+.cell.bg-aqua{
+    background-color: aqua;
+}
